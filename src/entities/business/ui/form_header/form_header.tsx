@@ -16,8 +16,8 @@ export const FormHeader = memo(({
 }: FormHeaderProps) => {
     return (
         <legend className={cx(style.root, className)}>
-            <h1>{title}</h1>
-            {subtitle && <h2>{subtitle}</h2>}
+            <h4 className={style.title}>{title}</h4>
+            {subtitle && <p className={style.subtitle}>{subtitle}</p>}
         </legend>
     );
 });
