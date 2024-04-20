@@ -34,7 +34,16 @@ export default {
 } as Meta;
 
 const Template = () => {
-  return <BasicSelect />
+  return <BasicSelect options={[{
+    value: 2,
+    label: '2',
+  }, {
+    value: 3,
+    label: '3',
+  }, {
+    value: 4,
+    label: '4',
+  }]} label="Guests" />
 };
 
 export const Default = Template.bind({});

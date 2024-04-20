@@ -5,31 +5,45 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export function BasicSelect() {
-  const [age, setAge] = useState('');
+type BasicSelectProps = {
+  options: Array<{
+    value: string | number;
+    label: string;
+  }>;
+  label: string;
+};
+
+export function BasicSelect({ options, label }: BasicSelectProps) {
+  const [value, setValue] = useState('');
+
+  if (options.length === 0) {
+    return null;
+  }
 
   /**
    * typing bug in material-ui
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleChange = (event: any) => {
-    setAge(event.target.value as string);
+    setValue(event.target.value as string);
   };
 
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <InputLabel id="simple-select-label">{label}</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
-          label="Age"
+          labelId="simple-select-label"
+          id="simple-select"
+          value={value}
+          label={label}
           onChange={handleChange}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {options.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </Box>
