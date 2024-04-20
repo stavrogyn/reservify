@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -13,7 +13,7 @@ type BasicSelectProps = {
   label: string;
 };
 
-export function BasicSelect({ options, label }: BasicSelectProps) {
+export const BasicSelect = memo(({ options, label }: BasicSelectProps) => {
   const [value, setValue] = useState('');
 
   if (options.length === 0) {
@@ -48,4 +48,6 @@ export function BasicSelect({ options, label }: BasicSelectProps) {
       </FormControl>
     </Box>
   );
-}
+})
+
+BasicSelect.displayName = 'BasicSelect';
