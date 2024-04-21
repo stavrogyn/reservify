@@ -18,7 +18,14 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@uikit/*": ["./src/shared/ui-kit/*"],
+      "@entities/*": ["./src/entities/*"],
+    },
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

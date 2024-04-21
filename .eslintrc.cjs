@@ -9,6 +9,7 @@ module.exports = {
     '@typescript-eslint/naming-convention': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/default': 'off',
+    'import/no-unresolved': 'off',
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
@@ -33,7 +34,7 @@ module.exports = {
                 position: 'after',
               },
               {
-                pattern: 'shared/**',
+                pattern: '@*',
                 patternOptions: { matchBase: true },
                 group: 'internal',
                 position: 'after',
